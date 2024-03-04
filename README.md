@@ -1,6 +1,4 @@
-# Counter-Strike 2 (CS2) Modded Dedicated Server
-
-If you are looking for the CS:GO version you can still access that [here](https://github.com/kus/csgo-modded-server/tree/csgo).
+Forked from [kus/cs2-modded-server](https://github.com/kus/cs2-modded-server)
 
 ## About
 
@@ -27,22 +25,6 @@ Each game mode has a hand full of maps preset so you are ready to go and it's [e
 - Hide n Seek ([Steam API key](#playing-workshop-mapscollections) required)
 - Soccer ([Steam API key](#playing-workshop-mapscollections) required)
 
-Every time you want to boot the server, you should run `gcp.sh` (if on Google Cloud) or `install.sh` (on Linux) and it will ensure your OS is up to date, CS2 is up to date, and pull down the latest patches from this mod (any updates that I push up).
-
-Obviously, any changes you have made to the files in this mod will be overwritten so I have created a "[custom files](#custom-files)" folder where you mirror the contents of the `game/csgo/` folder, and any files you want to tweak, you put in there in the same spot and they will always overwrite the mods default files. Read more about it [here](#custom-files).
-
-The simple quick setup:
-
-1. [Create your firewall rules](#create-firewall-rule)
-2. [Provision your server on Google Cloud](#create-instance)
-3. [SSH into server](#ssh-to-server)
-4. [Install mod](#install-mod)
-5. [Create your custom files for hostname, admins etc](#custom-files)
-6. Ensure you have followed the steps for creating an [online server](#creating-an-online-server) or [LAN server](#creating-a-lan-server)
-7. Kill server if running `./stop.sh` and start again `gcp.sh` (if on Google Cloud) or `install.sh` (on Linux)
-
-Your server should be up and running!
-
 To check everything is working correctly run the following commands in the server console:
 
 - `meta list` and you should see `CounterStrikeSharp` in the output
@@ -64,13 +46,6 @@ Useful things to know:
 - [Changing game mode](#changing-game-modes)
 - [Changing maps](#changing-maps)
 - [Player commands](#player-commands)
-
-Getting up and running:
-
-- [Running on Google Cloud](#running-on-google-cloud)
-- [Running on Linux](#running-on-linux)
-- [Running in Docker](#running-in-docker)
-- [Running on Windows](#running-on-windows)
 
 ## Mods installed
 
@@ -105,36 +80,15 @@ Mod | Version | Why
 [AnnouncementBroadcaster](https://github.com/lengran/CS2AnnouncementBroadcaster) | `0.3.1` | Conditional messages, OnCommand, OnPlayerConnect, OnRoundStart, and TimerMsgs.
 [CS2FunMatchPlugin](https://github.com/TitaniumLithium/CS2FunMatchPlugin) | `1.1.0` | Random fun mode every round
 
-## Share the love
-
-If you appreciate the project then please take the time to star the repository 🙏
-
-<img alt="Star the project" src="https://github.com/kus/cs2-modded-server/blob/assets/assets/star.png?raw=true&sanitize=true">
-
-## Stay up to date
-
-Subscribe to release notifications and stay up to date with the latest features and patches:
-
-<img alt="Subscribe to updates" src="https://github.com/kus/cs2-modded-server/blob/assets/assets/watch.png?raw=true&sanitize=true">
-
 ## Custom files
-
-> [!NOTE]  
-> Any reference to a path is always the root of the installation. Which on Linux will typically be `/home/steam/cs2/` and on Windows where ever you extracted the zip.
->
-> For example on Linux:
-> `/custom_files/addons/counterstrikesharp/configs/admins.json` full path is `/home/steam/cs2/custom_files/addons/counterstrikesharp/configs/admins.json`
-> `/game/csgo/addons/counterstrikesharp/configs/admins.json` full path is `/home/steam/cs2/game/csgo/addons/counterstrikesharp/configs/admins.json`
 
 Any changes you have made to the files in this mod will be overwritten when the update scripts are ran. I have created a folder `/custom_files/` in the root of the project, where you mirror the contents of the `csgo/` folder, and any files you want to tweak, you put in there in the same spot and they will always overwrite the mods default files.
 
 So this can be used to set the server hostname to something you want, set the RCON or serverpassword or set the admins of the server.
 
-You can see an example of what I use on my server in the `/custom_files_example/` directory, which sets the hostname, server image and admins.
-
 For example; if you want to add yourself as an admin, that file is located `/game/csgo/addons/counterstrikesharp/configs/admins.json`. So to make your tweak to it, you would copy that file to `/custom_files/addons/counterstrikesharp/configs/admins.json` and add yourself as an admin at the bottom. Then when the update scripts run, it will copy your custom file at `/custom_files/addons/counterstrikesharp/configs/admins.json` and overwrite the default mod file at `/game/csgo/addons/counterstrikesharp/configs/admins.json`.
 
-If you want to change the server name, or make any changes to any mod settings use the `/cfg/custom_MOD.cfg` as it executes at the end and can overwrite any setting. So if you wanted to change the server name for GunGame, you would copy `/game/csgo/cfg/custom_dm.cfg` to `/custom_files/cfg/custom_dm.cfg` and and write `hostname "shipREKT GunGame +Deathmatch +Turbo"` and any other settings you want and this file will overwrite `/game/csgo/cfg/custom_dm.cfg` each time the `gcp.sh`/`install.sh`/`win.bat` script is ran, and these settings will run at the end when you load the GunGame mod.
+If you want to change the server name, or make any changes to any mod settings use the `/cfg/custom_MOD.cfg` as it executes at the end and can overwrite any setting. So if you wanted to change the server name for GunGame, you would copy `/game/csgo/cfg/custom_dm.cfg` to `/custom_files/cfg/custom_dm.cfg` and and write `hostname "RRL GunGame +Deathmatch +Turbo"` and any other settings you want and this file will overwrite `/game/csgo/cfg/custom_dm.cfg` each time the `gcp.sh`/`install.sh`/`win.bat` script is ran, and these settings will run at the end when you load the GunGame mod.
 
 ### Dynamically creates config files in plugin folder
 
@@ -154,37 +108,9 @@ See all available [environment variables](#environment-variables).
 
 ## Creating a LAN server
 
-Set the environment variable `LAN` to `1`.
-
-You also need to create an [authorization key](http://steamcommunity.com/dev/apikey) which will allow your server to download maps from the workshop. Put this value in the `API_KEY` environment variable.
-
-See all available [environment variables](#environment-variables).
-
-## Environment variables
-
-### Available via environment variable only
-
-*On Windows set these in `win.ini`.*
-
-Key | Default value | What is it
---- | --- | ---
-`API_KEY` | `changeme` | To download maps from the workshop, your server needs access to the steam web api. To allow this you'll need an authorization key which you can generate [here](http://steamcommunity.com/dev/apikey)
-`IP` | `` | Not required. Allows the server IP to be set. Useful if a CS2 server needs to be bound to a specific IP address.
-`PORT` | `27015` | Server port
-`TICKRATE` | `128` | Server tickrate MM is 64, Faceit is 128
-`MAXPLAYERS` | `32` | Max player limit
-`CUSTOM_FOLDER` | `custom_files` | Folder of your own modifications to the mod that mirror the csgo/ structure and overwrite the mode files. More on that [here](#custom-files)
-`RCON_PASSWORD` | `changeme` | RCON password to control server from console also remotely configure
-`STEAM_ACCOUNT` | `` | To host a server online, you need to create a Steam [Game Login Token](https://steamcommunity.com/dev/managegameservers). Your server will not run online without this
-`SERVER_PASSWORD` | `` | If you want a password protected server
-`LAN` | `0` | If the server is a LAN only server
-`EXEC` | `on_boot.cfg` | Config file to run when server boots. If switching gamemode, it's recommended to do a delay see the example `on_boot.cfg` file
-`DUCK_DOMAIN` | `` | (Linux only) [Duck DNS](https://www.duckdns.org/) domain if you want to utalise the free service to get a domain for your server instead of IP
-`DUCK_TOKEN` | `` | (Linux only) [Duck DNS](https://www.duckdns.org/) access token to update domain when server boots
+Create a custom file for `/game/csgo/cfg/env.cfg` following the [custom files](#custom-files) steps (`/custom_files/cfg/env.cfg`) and set `sv_lan` to `1`, `sv_downloadurl` to `""` and `sv_allowdownload` to `1`.
 
 ## Playing workshop maps/collections
-
-To download maps from the workshop, your server needs access to the steam web api. To allow this you'll need an authorization key which you can generate [here](http://steamcommunity.com/dev/apikey) and set `API_KEY` to the key.
 
 The console command for hosting a workshop map is `host_workshop_map fileid` where `fileid` is the number that comes after `?id=` in the workshop URL for example: [https://steamcommunity.com/sharedfiles/filedetails/?id=2433686680](https://steamcommunity.com/sharedfiles/filedetails/?id=2433686680)
 
@@ -197,205 +123,6 @@ Copy the file `/game/csgo/gamemodes_server.txt` following the [custom files](#cu
 It isn't required, but you should add the fileid into `/game/csgo/subscribed_file_ids.txt` following the [custom files](#custom-files) steps (`/custom_files/subscribed_file_ids.txt`) so the server keeps it up to date.
 
 If you have python available, you can use our tool available to add a map to your custom game mode map groups: `python scripts/add-map.py <group_name> <map_name> [workshop_id] --custom`. Refer to `scripts/add-map.py` for more information.
-## Running on Google Cloud
-
-### Create firewall rule
-
-```
-gcloud compute firewall-rules create source \
---allow tcp:27015-27020,tcp:80,udp:27015-27020
-```
-
-### Create instance
-
-Ensure you have all the settings for your [environment variables](#environment-variables).
-
-If you have issues with the server not handling load, you may want to consider [compute-optimized](https://cloud.google.com/compute/vm-instance-pricing#compute-optimized_machine_types) machine `c2-standard-4`.
-
-```
-gcloud beta compute instances create <instance-name> \
---maintenance-policy=TERMINATE \
---project=<project> \
---zone=australia-southeast1-c \
---machine-type=n2-standard-2 \
---network-tier=PREMIUM \
---metadata=RCON_PASSWORD=changeme,STEAM_ACCOUNT=changeme,API_KEY=changeme,DUCK_DOMAIN=changeme,DUCK_TOKEN=changeme,startup-script="echo \"Delaying for 30 seconds...\" && sleep 30 && cd / && /gcp.sh" \
---no-restart-on-failure \
---scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/compute.readonly,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
---tags=source \
---image-family=ubuntu-2204-lts \
---image-project=ubuntu-os-cloud \
---boot-disk-size=60GB \
---boot-disk-type=pd-standard \
---boot-disk-device-name=<instance-name>
-```
-
-### SSH to server
-
-```
-gcloud compute ssh <instance-name> \
---zone=australia-southeast1-c
-```
-
-### Install mod
-
-```
-sudo su
-cd / && curl --silent --output "gcp.sh" "https://raw.githubusercontent.com/kus/cs2-modded-server/master/gcp.sh" && chmod +x gcp.sh && bash gcp.sh
-```
-
-If the installation has paused for a long time, restart the server and do it again.
-
-### Stop server
-
-```
-gcloud compute instances stop <instance-name> \
---zone australia-southeast1-c
-```
-
-### Start server
-
-```
-gcloud compute instances start <instance-name> \
---zone australia-southeast1-c
-```
-
-### Delete server
-
-```
-gcloud compute instances delete <instance-name> \
---zone australia-southeast1-c
-```
-
-### Push file to server from local machine
-
-For example a map:
-
-```
-On local:
-gcloud config set project <project>
-cd /path/to/folder
-gcloud compute scp de_kus.vpk root@<instance-name>:/home/steam/cs2/game/csgo/maps --zone australia-southeast1-c
-
-On server SSH:
-cd /home/steam/cs2/game/csgo/maps
-chown steam:steam de_kus.vpk
-chmod 644 de_kus.vpk
-```
-
-### Download from server
-
-`gcloud compute scp root@<instance-name>:/home/steam/cs2/gamecsgo/cfg/comp.cfg  ~/Desktop/`
-
-### Turn VM off at 3:30AM every day
-
-SSH into the VM
-
-Switch to root `sudo su`
-
-Check the timezone your server is running in `sudo hwclock --show`
-
-Open crontab file `nano /etc/crontab`
-
-Append to the end of the crontab file `30 3    * * *   root    shutdown -h now`
-
-Save `CTRL + X`
-
-## Running on Linux
-
-Make sure you have **60GB free space**.
-
-Ensure you have all the settings for your [environment variables](#environment-variables).
-
-- **If setting up internet server:**
-
-   Set environment variable `STEAM_ACCOUNT` to your [Game Server Login Token](https://steamcommunity.com/dev/managegameservers)
-
-   Make sure you [port forward](https://portforward.com/router.htm) on your router TCP: `27015` and UDP: `27015` & `27020` so players can connect from the internet.
-
-   **You must connect to the server from the public IP, not the LAN IP even if you are on the same network. The script logs the public IP `Starting server on XXX.XXX.XXX.XXX:27015`**
-
-- **If setting up LAN server:**
-
-   Set environment variable `LAN` to `1`
-
-```
-sudo su
-export RCON_PASSWORD="changeme"
-export API_KEY="changeme"
-export STEAM_ACCOUNT=""
-export SERVER_PASSWORD=""
-export PORT="27015"
-export TICKRATE="128"
-export MAXPLAYERS="32"
-cd / && curl --silent --output "install.sh" "https://raw.githubusercontent.com/kus/cs2-modded-server/master/install.sh" && chmod +x install.sh && bash install.sh
-```
-
-- **If running for the first time**
-
-To check everything is working correctly run the following commands in the server console:
-
-- `meta list` and you should see `CounterStrikeSharp` in the output
-- `css_plugins list` and you should see a few plugins in the output
-
-If you see content in both; everything is working.
-
-When you join the server you can [change game modes](#changing-game-modes).
-
-## Running in Docker
-
-*Only tested on Windows 11 with WSL2 integration as backend*
-
-Make sure Docker is installed and about 40 GB disk space is free.
-
-You can either Download this repo and extract it to where you want your server (i.e. C:\Server\cs2-modded-server) or use git and clone the repo `git clone https://github.com/kus/cs2-modded-server.git` and run your server from inside of it. This way you can simply git pull updates.
-
-- **If setting up for internet server:**
-
-   Set 'STEAM_ACCOUNT' variable in '.env'-file in the root if the repository.
-   For workshop maps set 'API_KEY' in '.env'-file.
-
-- **Build docker image:**
-
-   `docker build -t cs2-modded-server .`
-
-- **Run the server**
-
-   `docker compose up`
-
-## Running on Windows
-
-Make sure you have **60GB free space**.
-
-You can either [Download this repo](https://github.com/kus/cs2-modded-server/archive/master.zip) and extract it to where you want your server (i.e. `C:\Server\cs2-modded-server`) or use git and clone the repo `git clone https://github.com/kus/cs2-modded-server.git` and run your server from inside of it. This way you can simply `git pull` updates.
-
-All the following instructions will use the repo folder location as the root.
-
-Create a folder `steamcmd` and [download SteamCMD](https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip) and extract it inside `steamcmd` so you should have `\steamcmd\steamcmd.exe`.
-
-To download maps from the workshop, your server [needs access](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive/Dedicated_Servers#Steam_Workshop) to the Steam Web API. To allow this, open `\win.ini` and set `cs_api_key` to your [Steam Web API Key](http://steamcommunity.com/dev/apikey).
-
-- **If setting up internet server:**
-
-   Open `\win.ini`
-
-   Set `IP` to your [public ip](http://checkip.amazonaws.com/)
-
-   Set `STEAM_ACCOUNT` to your [Game Server Login Token](https://steamcommunity.com/dev/managegameservers)
-
-   Set `API_KEY` to your [Steam Web API key](http://steamcommunity.com/dev/apikey) (required to play workshop maps)
-
-   Make sure you [port forward](https://portforward.com/router.htm) on your router TCP: `27015` and UDP: `27015` & `27020` so players can connect from the internet.
-
-   **You must connect to the server from the public IP, not the LAN IP even if you are on the same network.**
-
-- **If setting up LAN server:**
-
-   Open `\win.ini`
-
-   Set `LAN` to `1`
-
-   Set `API_KEY` to your [Steam Web API key](http://steamcommunity.com/dev/apikey) (required to play workshop maps)
 
 [Add admins](#acessing-admin-menu)
 
@@ -514,13 +241,11 @@ You can also start a specific game mode vote by typing `!comp`, `!wingman`, `!dm
 
 [Download SourceAdminTool](https://nightly.link/Drifter321/admintool/workflows/build/master) ([source](https://github.com/Drifter321/admintool)) for your OS (you can read about it [here](https://forums.alliedmods.net/showthread.php?t=289370)) and click `Servers > Add Servers` and put in the `<IP>:27015` and when you see the server show in the list, down the bottom left type in your RCON password and click `Login` and you should be able to execute commands from the bottom text box i.e. `exec dm.cfg`
 
-**You must connect to the server from the public IP if hosting an online server, not the LAN IP even if you are on the same network. The script logs the public IP `Starting server on XXX.XXX.XXX.XXX:27015`**
-
 ### Acessing admin menu
 
 Admins are managed by [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp) using the [Admin Framework](https://docs.cssharp.dev/admin-framework/defining-admins/). You define admins and their flags and most plugins now utilise this framework.
 
-To see an example of my admins you can look at this file [/custom_files_example/addons/counterstrikesharp/configs/admins.json](https://github.com/kus/cs2-modded-server/blob/master/custom_files_example/addons/counterstrikesharp/configs/admins.json). To set your admins on your own server use this file as a reference and use the [custom files](#custom-files) system to have your own version.
+To see an example of my admins you can look at this file [/custom_files/addons/counterstrikesharp/configs/admins.json](https://github.com/dawidkulpa/cs2-modded-server/blob/master/custom_files/addons/counterstrikesharp/configs/admins.json). To set your admins on your own server use this file as a reference and use the [custom files](#custom-files) system to have your own version.
 
 Ensure your `.json` files are valid JSON by using [this website](https://jsonformatter.org/json-viewer).
 
@@ -639,16 +364,6 @@ If you want to remove bots you use `rcon bot_kick`.
 
 Because the way the server is setup with several mods it's not possible. You can't use `+exec` in the server launcher as that executes to quick before SourceMod is loaded. You can monitor the server once it's started (via RCON) and then load a mod i.e. `exec dm.cfg`.
 
-### Manually updating Metamod:Source and CounterStrikeSharp
-
-If you are on a unix based system, you can run `scripts/check-updates.sh` which will check the current versions of each plugin installed in this repo vs what the latest is, this makes it easier than going through each one manually.
-
-Go to the Releases page for [Metamod:Source](http://www.sourcemm.net/downloads.php?branch=master) and [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp) and download the latest. You need to merge the `addons` folder from the zips into the `/game/csgo/addons` of this repo. This is easy to do with unix based systems with rsync:
-
-First open terminal and `cd` into the folder where you unzipped the zips i.e.: `cd ~/Downloads` then update the command below with the full path to the repo and run it:
-
-`rsync -rhavz --exclude "._*" --exclude ".DS_Store" --partial --progress --stats ./addons/ /Users/kus/dev/personal/counter-strike/cs2-modded-server/game/csgo/addons/`
-
 If you are on Windows, from the [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/releases) with runtime zip, you need to copy the `api`,`bin`, `dotnet` folders from the `/addons/counterstrikesharp` folder to`game/csgo/addons/windows/counterstrikesharp` in this repo.
 
 ### Enable advertisements
@@ -666,14 +381,6 @@ If you want to enable a whitelist on your server load the plugin by putting this
 If you want it to load on every mod on your server, you can put it in your `/custom_files/cfg/custom_all.cfg` file.
 
 The whitelist file is located at `/game/csgo/addons/counterstrikesharp/plugins/disabled/WhiteList/whitelist.txt` which you would put in `/custom_files/addons/counterstrikesharp/plugins/disabled/WhiteList/whitelist.txt` so it is not overwritten.
-
-### Failed to open libtier0.so
-
-`Failed to open libtier0.so (/home/steam/cs2/bin/libgcc_s.so.1: version 'GCC_7.0.0' not found (required by /lib/i386-linux-gnu/libstdc++.so.6))`
-
-This is because Valve ships their own copies of those libraries. As modern systems will have newer versions, you can safely delete the listed file from the server install. Do not delete the file in the system path (usually lib or lib32)[*](https://wiki.alliedmods.net/Installing_metamod:source).
-
-`cd /home/steam/cs2/bin/` and `rm libgcc_s.so.1` and restart the server.
 
 ## License
 
