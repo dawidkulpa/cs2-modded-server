@@ -2,14 +2,14 @@
   "PrintToCenterHtml": false,
   "WelcomeMessage": {
     "MessageType": 0,
-    "Message": "To list available commands, type {LIGHTGREEN}.help"
+    "Message": "To list available commands, type {GREEN}.help"
   },
   "Ads": [
     {
       "Interval": 120,
       "Messages": [
         {
-          "Chat": "To list available commands, type {LIGHTGREEN}.help"
+          "Chat": "To list available commands, type {GREEN}.help"
         }
       ]
     }
