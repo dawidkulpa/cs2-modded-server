@@ -32,6 +32,9 @@
 						"mg_gg"				"59"
 						"mg_awp"			"60"
 						"mg_aim"			"61"
+						"mg_prefire"		"62"
+						"mg_deathrun"		"63"
+						"mg_Casual-1.6"		"64"
 					}
 				}
 
@@ -93,7 +96,7 @@
 				"de_inferno"	""
 				"de_mirage"		""
 				"de_nuke"		""
-				"de_overpass"	""
+				"de_dust2"		""
 				"de_vertigo"	""
 			}
 		}
@@ -115,7 +118,7 @@
 				"de_vertigo"		""
 				"workshop/3071005299/de_assembly"		""
 				"workshop/3070212801/de_cbble"		""
-				"workshop/3070596702/de_cache"		""
+				"workshop/3070244931/de_cache"		""
 				"workshop/3079872050/de_pipeline"		""
 				"workshop/3075706807/de_biome"		""
 				"workshop/3070346180/mp_raid"		""
@@ -125,6 +128,7 @@
 				"workshop/3089953774/cs_militia"		""
 				"workshop/3070960099/de_aztec"		""
 				"workshop/3108513658/de_akiba"		""
+				"workshop/3236615060/cs_insertion2"		""
 			}
 		}
 		"mg_wingman"
@@ -152,7 +156,7 @@
 				"workshop/3070612859/de_shortdust"		""
 				"workshop/3071005299/de_assembly"		""
 				"workshop/3070212801/de_cbble"		""
-				"workshop/3070596702/de_cache"		""
+				"workshop/3070244931/de_cache"		""
 				"workshop/3079872050/de_pipeline"		""
 				"workshop/3075706807/de_biome"		""
 				"workshop/3070346180/mp_raid"		""
@@ -190,13 +194,14 @@
 				"workshop/3070348309/aim_theorem"		""
 				"workshop/3071005299/de_assembly"		""
 				"workshop/3070212801/de_cbble"		""
-				"workshop/3070596702/de_cache"		""
+				"workshop/3070244931/de_cache"		""
 				"workshop/3079872050/de_pipeline"		""
 				"workshop/3075706807/de_biome"		""
 				"workshop/3077599381/dm_desk"		""
 				"workshop/3088183343/fun_bounce"		""
 				"workshop/3082605693/1v1aim_map_longdustversion_d"		""
 				"workshop/3070291913/ar_churches_s2r"		""
+				"workshop/3134466699/mcdonalds"		""
 				"workshop/3082113929/aim_ag_texture_city_advanced"		""
 				"workshop/3080973179/traningoutside"		""
 				"workshop/3086555291/shipment_version_1_0"		""
@@ -218,6 +223,7 @@
 				"workshop/3070923343/fy_pool_day"		""
 				"workshop/3070238628/fy_iceworld"		""
 				"workshop/3072640420/daymare"		""
+				"workshop/3134466699/mcdonalds"		""
 				"workshop/3070348309/aim_theorem"		""
 				"workshop/3070550406/de_safehouse"		""
 				"workshop/3070563536/de_lake"		""
@@ -264,7 +270,9 @@
 			"maps"
 			{
 				"workshop/3074758439/only_up"		""
+				"workshop/3170668869/ewii_challenge"		""
 				"workshop/3070220367/kz_hub"		""
+				"workshop/3145779590/hellcasecyrilchallenge"		""
 				"workshop/3070194623/kz_checkmate"		""
 				"workshop/3086304337/kz_victoria"		""
 				"workshop/3072219045/kz_rc_stonehenge"		""
@@ -298,7 +306,18 @@
 			"maps"
 			{
 				"workshop/3082120895/mg_skeet_multigames_v7"		""
+				"workshop/3202752274/mg_lego_course_2"		""
 				"workshop/3076765511/mg_warmcup_headshot"		""
+				"workshop/3186779271/minecraft"		""
+			}
+		}
+		"mg_deathrun"
+		{
+			"name"			"mg_deathrun"
+			"maps"
+			{
+				"workshop/3164611860/deathrun_playground"		""
+				"workshop/3188021118/deathrun_civilization"		""
 				"workshop/3083325292/deathrun_iceworld_cs2"		""
 			}
 		}
@@ -360,7 +379,7 @@
 				"workshop/3142070597/awp_bhop_rocket"		""
 			}
 		}
-				"mg_aim"
+		"mg_aim"
 		{
 			"name"			"mg_aim"
 			"maps"
@@ -368,6 +387,40 @@
 				"workshop/3084291314/aim_map"			""
 				"workshop/3146122036/freebet_aim_map"	""
 				"workshop/3070923343/fy_pool_day"		""
+				"workshop/3078701726/aim_ak-colt_CS2"   ""
+				"workshop/3085962528/aim_usp"		""
+				"workshop/3075996446/aim_deagle"		""
+			}
+		}
+		"mg_prefire"
+		{
+			"name"			"mg_prefire"
+			"maps"
+			{
+				"de_ancient"		""
+				"de_dust2"			""
+				"de_inferno"		""
+				"de_mirage"			""
+				"de_overpass"		""
+				"de_anubis"			""
+				"de_nuke"			""
+			}
+		}
+		"mg_Casual-1.6"
+		{
+			"name"			"mg_Casual-1.6"
+			"maps"
+			{
+				"workshop/3104677430/as_oilrig"				""
+				"workshop/3215705579/cs_assult_classic"		""
+				"workshop/3213800338/de_aztec_classic"		""
+				"workshop/3078095785/de_dust_classic"		""
+				"workshop/3201205818/de_dust2_classic"		""
+				"workshop/3212419403/cs_italy_classic"		""
+				"workshop/3144773563/cs_militia_classic"	""
+				"workshop/3205793205/de_nuke_classic"		""
+				"workshop/3216844784/cs_office_classic"		""
+				"workshop/3217247541/de_survivor_classic_m"	""
 			}
 		}
 	}
