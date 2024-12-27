@@ -555,7 +555,7 @@
     }
   },
   "libraries": {
-    "GameModeManager/1.0.5": {
+    "GameModeManager/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
