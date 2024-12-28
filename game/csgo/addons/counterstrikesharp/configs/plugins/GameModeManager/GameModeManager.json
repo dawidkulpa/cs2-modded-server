@@ -31,7 +31,7 @@
   "Maps": {
     "Mode": 0,
     "Delay": 5,
-    "Style": "center",
+    "Style": "wasd",
     "Default": "de_dust2"
   },
   "Votes": {
@@ -39,11 +39,12 @@
     "Maps": true,
     "Style": "center",
     "GameModes": true,
-    "GameSettings": false
+    "GameSettings": false,
+    "Style": "wasd"
   },
   "Settings": {
     "Enabled": true,
-    "Style": "center",
+    "Style": "wasd",
     "Folder": "settings"
   },
   "Warmup": {
@@ -60,7 +61,7 @@
     "Modes": true,
     "TimeLeft": true,
     "TimeLimit": true,
-    "Style": "center"
+    "Style": "wasd"
   },
   "Rotation": {
     "Enabled": false,
@@ -90,7 +91,7 @@
     ]
   },
   "GameModes": {
-    "Style": "center",
+    "Style": "wasd",
     "Default": {
       "Name": "Casual",
       "Config": "casual.cfg",
