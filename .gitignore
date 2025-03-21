@@ -2,6 +2,6 @@
 /server/
 /steamcmd/
 .env copy
-/custom_files/*
 cs2
 tmp
+*:Zone.Identifier
