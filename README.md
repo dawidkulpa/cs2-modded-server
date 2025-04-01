@@ -324,7 +324,7 @@ Mod | Version | Why
 [RollTheDice](https://github.com/Kandru/cs2-roll-the-dice) | `1.3.8` | Roll the dice to get either a positive or negative effect for the current round.
 [CS2-FixRandomSpawn](https://github.com/qstage/CS2-FixRandomSpawn) | `1.1.2` | Fixes ConVar `mp_randomspawn` for any game mode.
 [CS2-MutualScoringPlayers](https://github.com/qstage/CS2-MutualScoringPlayers) | `1.0.1` | Keeps score of kills between players.
-PlayerColorSmokes | `1.0.0` | Changes colors of smokes for easier team practice.
+PlayerColorSmokes | `1.0.2` | Changes colors of smokes for easier team practice.
 
 
 
