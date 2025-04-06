@@ -99,6 +99,7 @@
         "Config": "comp.cfg",
         "DefaultMap": "de_inferno",
         "MapGroups": [
+          "mg_prac",
           "mg_comp"
         ]
       },
