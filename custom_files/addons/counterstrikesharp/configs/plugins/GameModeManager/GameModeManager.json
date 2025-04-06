@@ -116,8 +116,8 @@
         "Config": "prac.cfg",
         "DefaultMap": "de_mirage",
         "MapGroups": [
-          "mg_comp",
-          "mg_prac"
+          "mg_prac",
+          "mg_comp"
         ]
       },
       {
