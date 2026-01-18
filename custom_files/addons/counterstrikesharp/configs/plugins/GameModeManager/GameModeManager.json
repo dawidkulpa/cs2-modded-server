@@ -1,13 +1,34 @@
 {
-  "Version": 7,
+  "Version": 12,
   "RTV": {
     "Enabled": true,
-    "Mode": 0,
-    "MapFormat": false,
-    "Plugin": "addons/counterstrikesharp/plugins/RockTheVote/RockTheVote.dll",
-    "MapList": "addons/counterstrikesharp/plugins/RockTheVote/maplist.txt"
+    "Style": "center",
+    "PerMap": false,
+    "HideHud": false,
+    "MinRounds": 0,
+    "MinPlayers": 1,
+    "VoteDuration": 60,
+    "OptionsToShow": 15,
+    "VotePercentage": 51,
+    "OptionsInCoolDown": 3,
+    "EndOfMapVote": true,
+    "IncludeModes": false,
+    "IncludeExtend": true,
+    "MaxExtends": 6,
+    "ExtendTime": 10,
+    "ExtendRounds": 5,
+    "ModePercentage": 40,
+    "EnabledInWarmup": false,
+    "HideHudAfterVote": false,
+    "NominationEnabled": true,
+    "MaxNominationWinners": 1,
+    "ChangeImmediately": false,
+    "TriggerKillsBeforeEnd": 13,
+    "TriggerRoundsBeforeEnd": 2,
+    "TriggerSecondsBeforeEnd": 120
   },
   "Maps": {
+    "Mode": 0,
     "Delay": 5,
     "Style": "wasd",
     "Default": "de_dust2"
@@ -36,6 +57,9 @@
     "Maps": true,
     "AllMaps": false,
     "TimeLeft": true,
+    "Mode": true,
+    "Modes": true,
+    "TimeLimit": true,
     "Style": "wasd"
   },
   "Rotation": {
@@ -193,6 +217,14 @@
         ]
       },
       {
+        "Name": "Capture The Flag",
+        "Config": "ctf.cfg",
+        "DefaultMap": "3555531615",
+        "MapGroups": [
+          "mg_ctf"
+        ]
+      },
+      {
         "Name": "Hide N Seek",
         "Config": "hns.cfg",
         "DefaultMap": "3348038890",
@@ -203,7 +235,7 @@
       {
         "Name": "Soccer",
         "Config": "soccer.cfg",
-        "DefaultMap": "3293224257",
+        "DefaultMap": "3238565662",
         "MapGroups": [
           "mg_soccer"
         ]
@@ -241,6 +273,14 @@
         ]
       },
       {
+        "Name": "One In The Chamber",
+        "Config": "oitc.cfg",
+        "DefaultMap": "ar_pool_day",
+        "MapGroups": [
+          "mg_gg"
+        ]
+      },
+      {
         "Name": "Battle Ball",
         "Config": "battle.cfg",
         "DefaultMap": "3280650663",
@@ -251,7 +291,7 @@
       {
         "Name": "Battle Royale",
         "Config": "br.cfg",
-        "DefaultMap": "3330484099",
+        "DefaultMap": "3462095803",
         "MapGroups": [
           "mg_battleroyale"
         ]
@@ -274,19 +314,43 @@
         ]
       },
       {
-        "Name": "Deathmatch (Valve)",
-        "Config": "dm-valve.cfg",
+        "Name": "Competitive (Valve)",
+        "Config": "valve-competitive.cfg",
         "DefaultMap": "de_dust2",
         "MapGroups": [
-          "mg_dm"
+          "mg_valve_competitive"
+        ]
+      },
+      {
+        "Name": "Deathmatch FFA (Valve)",
+        "Config": "valve-deathmatch-freeforall.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_valve_deathmatch"
         ]
       },
       {
         "Name": "Arms Race (Valve)",
-        "Config": "ar.cfg",
+        "Config": "valve-armsrace.cfg",
         "DefaultMap": "ar_pool_day",
         "MapGroups": [
-          "mg_gg"
+          "mg_valve_arms_race"
+        ]
+      },
+      {
+        "Name": "Wingman (Valve)",
+        "Config": "valve-wingman.cfg",
+        "DefaultMap": "de_nuke",
+        "MapGroups": [
+          "mg_valve_wingman"
+        ]
+      },
+      {
+        "Name": "Retakes (Valve)",
+        "Config": "valve-retake.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_valve_retakes"
         ]
       },
       {
