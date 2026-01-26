@@ -370,6 +370,7 @@
 				"ar_baggage"		""
 				"ar_pool_day"		""
 				"workshop/3443206318/speedball"		""
+				"workshop/3118710028/aim_plywood"		""
 				"workshop/3267768230/gg_lego_arena"		""
 				"workshop/3535917558/de_indoor"		""
 				"workshop/3071005299/de_assembly"		""
@@ -593,6 +594,7 @@
 			{
 				"workshop/3084291314/aim_map"			""
 				"workshop/3111527644/gg_festspeedball"		""
+				"workshop/3118710028/aim_plywood"		""
 				"workshop/3146122036/freebet_aim_map"	""
 				"ar_pool_day"		""
 				"workshop/3078701726/aim_ak-colt_CS2"   ""
@@ -607,6 +609,15 @@
 				"workshop/3437226954/fy_hangemhigh"		""
 				"workshop/3455068243/ar_combat_arena"		""
 				"workshop/3329405459/ar_ds_cornered_gg1"		""
+				"workshop/3443206318/speedball"		""
+				"workshop/3535917558/de_indoor"		""
+				"workshop/3072640420/daymare"		""
+				"workshop/3082113929/aim_ag_texture_city_advanced"		""
+				"workshop/3475270536/trainingoutside"		""
+				"workshop/3086555291/shipment_version_1_0"		""
+				"workshop/3074961197/aim_ag_texture2"		""
+				"workshop/3095778105/aim_ag_texture_jungle"		""
+				"workshop/3071890065/cs2_bloodstrike"		""
 			}
 		}
 		"mg_casual-1.6"
