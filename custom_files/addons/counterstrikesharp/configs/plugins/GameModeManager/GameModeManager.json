@@ -36,7 +36,7 @@
   "Votes": {
     "Enabled": true,
     "Maps": true,
-    "Style": "center",
+    "AllMaps": false,
     "GameModes": true,
     "GameSettings": false,
     "Style": "wasd"
@@ -47,46 +47,30 @@
     "Folder": "settings"
   },
   "Warmup": {
-    "Enabled": false,
     "Time": 0,
     "PerMap": false,
-    "Default": {
-      "Name": "Deathmatch",
-      "Config": "warmup/dm.cfg"
-    },
-    "List": [
-      {
-        "Name": "Deathmatch",
-        "Config": "warmup/dm.cfg"
-      },
-      {
-        "Name": "Knives Only",
-        "Config": "warmup/knives_only.cfg"
-      },
-      {
-        "Name": "Scoutz Only",
-        "Config": "warmup/scoutz_only.cfg"
-      }
-    ]
+    "Default": {},
+    "List": []
   },
   "Commands": {
     "Map": true,
     "Maps": true,
+    "AllMaps": false,
+    "TimeLeft": true,
     "Mode": true,
     "Modes": true,
-    "TimeLeft": true,
     "TimeLimit": true,
     "Style": "wasd"
   },
   "Rotation": {
     "Enabled": false,
+    "WhenServerEmpty": false,
+    "CustomTimeLimit": 600,
     "Cycle": 0,
     "MapGroups": [
       "mg_active",
       "mg_comp"
     ],
-    "WhenServerEmpty": false,
-    "CustomTimeLimit": 600,
     "ModeRotation": false,
     "ModeInterval": 4,
     "ModeSchedules": false,
@@ -110,7 +94,7 @@
     "Default": {
       "Name": "Casual",
       "Config": "casual.cfg",
-      "DefaultMap": null,
+      "DefaultMap": "de_mirage",
       "MapGroups": [
         "mg_active",
         "mg_comp"
@@ -139,6 +123,7 @@
         "Config": "comp.cfg",
         "DefaultMap": "de_inferno",
         "MapGroups": [
+          "mg_prac",
           "mg_comp"
         ]
       },
@@ -153,8 +138,9 @@
       {
         "Name": "Practice Mode",
         "Config": "prac.cfg",
-        "DefaultMap": "de_dust2",
+        "DefaultMap": "de_mirage",
         "MapGroups": [
+          "mg_prac",
           "mg_comp"
         ]
       },

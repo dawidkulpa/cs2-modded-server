@@ -2,8 +2,8 @@
 /server/
 /steamcmd/
 .env copy
-/custom_files/*
 cs2
 tmp
 console.log
 settings.local.json
+*:Zone.Identifier
